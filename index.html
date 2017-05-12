@@ -1,115 +1,84 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+---
+layout: default
+---
+<div class="row" style="margin-bottom:30px">
+  <div class="home col-md-8">
+    {% for post in paginator.posts %}
+    <div class="post-contents">
+      <h2>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </h2>
+      <span class="post-meta"><i class="fa fa-calendar">&nbsp;&nbsp;</i>{{ post.date | date: "%b %-d, %Y" }}</span>
+      <span class="post-meta" style="margin-left:50px;margin-right:50px;"><i class="fa fa-comment-o">&nbsp;&nbsp;</i><a style="color:#828282" href="{{ post.url | prepend: site.baseurl }}#disqus_thread"></a></span>
+      {% for tag in post.tags  %}
+      <span class="post-meta" ><i class="fa fa-tags">&nbsp;&nbsp;</i>{{ tag }}</span>
+      {% endfor %}
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-
-<head>
-     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
-     <title>One Page Resume</title>
-
-     <style type="text/css">
-        * { margin: 0; padding: 0; }
-        body { font: 16px Helvetica, Sans-Serif; line-height: 24px; background: url(images/noise.jpg); }
-        .clear { clear: both; }
-        #page-wrap { width: 800px; margin: 40px auto 60px; }
-        #pic { float: right; margin: -30px 0 0 0; }
-        h1 { margin: 0 0 16px 0; padding: 0 0 16px 0; font-size: 42px; font-weight: bold; letter-spacing: -2px; border-bottom: 1px solid #999; }
-        h2 { font-size: 20px; margin: 0 0 6px 0; position: relative; }
-        h2 span { position: absolute; bottom: 0; right: 0; font-style: italic; font-family: Georgia, Serif; font-size: 16px; color: #999; font-weight: normal; }
-        p { margin: 0 0 16px 0; }
-        a { color: #999; text-decoration: none; border-bottom: 1px dotted #999; }
-        a:hover { border-bottom-style: solid; color: black; }
-        ul { margin: 0 0 32px 17px; }
-        #objective { width: 500px; float: left; }
-        #objective p { font-family: Georgia, Serif; font-style: italic; color: #666; }
-        dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 26px 0 0; width: 150px; float: left; height: 100px; border-right: 1px solid #999;  }
-        dd { width: 600px; float: right; }
-        dd.clear { float: none; margin: 0; height: 15px; }
-     .STYLE1 {color: #FF0000}
-     </style>
-</head>
-
-<body>
-
-    <div id="page-wrap">
-      <div id="contact-info" class="vcard">
-        
-            <!-- Microformats! -->
-        
-            <h1 align="justify" class="fn">无耻：  张国宗 <img src="images/2.png" alt="OK" width="351" height="80" /></h1>
-        
-            <p align="left">电话：<span class="clear"><img src="images/cthulu.jpg" alt="Photo of Cthulu" width="262" height="326" id="pic" /></span>18510379069<br />
-        </p>
+      <div class="post-content truncate" itemprop="articleBody" style="max-height:300px;margin-top:20px;">
+	{{ post.content }}
       </div>
-                
-        <div >
-            <p class="STYLE1"><strong><span  style="font-size:20px"> 无耻奇人张国宗：河北建筑工程学院建筑工程专业，曾在河北省人民医院工作，高级工程师. 临漳县政府副县长张国宗 ，分管人民医院。北 京源和医院管理服务有限公司法人代表 张国宗 ，其业务范围只有河北 临漳县, 勾引 肖女士。地方官员来北京开个公司，拿原公分管医院业务，所谓咨询费用。没有一点医学背景还精准医疗。人渣</span></strong></p>
-            <p><strong>北京源和医院管理服务有限公司</strong> <a href="http://yhooyg.com/index.php"> http://yhooyg.com/index.php</a>联系电话： 010-82292756/18601011704邮箱地址： sunyuan@yhoocapital.com公司地址： 北京市西直门北大街32号枫蓝国际中心B座1109</p>
+      <div style="height:50px;">
+	<a href="{{ post.url }}" class="button readmore-button">Read More</a>
       </div>
-        
-        <div class="clear"></div>
-        
-        <dl>
-            <dd class="clear"></dd>
-            
-            <dt>教育经历：<img src="images/1.jpg" alt="OK" width="130" height="132" /><a href="images/1.jpg">bigimages</a></dt>
-            <dd>
-              <h2>1）河北建筑工程学院建筑工程专业 </h2>
-                <p> 张国宗，男，1973年1月16日出生，1996年7月毕业于河北建筑工程学院建筑工程专业获学士工学学位；2004年12月获燕山大学管理学硕士学位；2006年就读河北工业大学管理学院攻读管理学博士，项目管理与风险控制方向。现就读北京航空航天大学博士后。曾在河北省人民医院工作，高级工程师，美国项目管理协会pmp认证，任基建处处长。第九届河北省、石家庄市青联委员。卫生部医院建设专家委员会河北代表。  <br />
-参加工作以来，一直从事工程项目管理工作，尤其在医疗建筑工程项目全寿命周期集成管理方面取得一定的成绩。完成20万平方米医疗建筑，并获得河北省“安济杯”优质工程荣誉。目前，河北医科大学第四医院医疗综合楼项目是河北省唯一“不超工期，不超概算”的大型公益项目；河北省人民医院医疗综合楼项目是我省首例采用专业化项目管理模式的项目，推动了我省项目管理行业由概念向实践的发展。本人通过大量的项目管理实践，在医疗建筑工程的策划、科研、规划、设计、实施、维护、运营等方面积累了大量的经验，并结合理论学习从事项目管理方向的研究，发表多篇项目管理方面论文。 </p>
-            </dd>
-            
-            <dd class="clear"></dd>
-            
-            <dt>公司工作经历：<img src="images/9.jpg" alt="OK" width="129" height="146" /><a href="images/9.jpg">bigimages</a></dt>
-          <dd>
-                <h2>2） 北京源和医院管理服务有限公司 法人代表 </h2>
-              <p align="justify"><strong>北京源和</strong><strong>医院</strong><strong>管理</strong><strong>服务</strong><strong>有限公司</strong> 北京源和医院管理服务有限公司（以下简称源和医管）主要经营医院管理服务，专注于医疗PPP项目管理与咨询、医疗产业投资与管理、医院管理及运营维护及医养结合服务。目前，源和医管与多家国内一流医院达成了紧密的服务及合作关系，拥有强大的医疗专家资源，与政府建立了广泛的合作关系，具有向政府提供服务的良好信誉和经验。<strong>拥有先进的医院运营及管理体系 </strong>源和医管建立了基于国际先进医院管理和国内等级医院评审标准的包括医院管理、运营维护、区域医疗卫生服务体系、智慧医疗等方面的医院管理体系，整合了台湾的医院和医养结合管理系统、能力与经验，建立了基于PPP模式的医院管理智库，包括国内高水平医院管理专家以及欧、美、日、韩、港、台等优秀医管专家团队；此外，公司致力于医联体、分级诊疗、医养服务，提供“互联网+社会服务终端+专业照护+健康大数据”进区入户的医疗卫生与养生养老服务。<strong>·拥有强大的医疗专家团队资</strong><strong> </strong>源和医管拥有国内领先的医院建设项目管理专业团队（IPD模式）和医院运营管理体系和团队、医院非临床物业保障服务能力。包括中国PPP研究院专家、国家卫计委医院建设指导委员会专家委员、中华医学会医院管理专家、中国医疗建筑与装备协会专家、医疗领域投融资专家等，与台湾地区一流医疗管理团队及专家形成紧密的合作伙伴关系。同时发起建立中国精准医疗学院，汇集阜外医院、宣武医院、北大肿瘤医院、中日友好医院等国内顶级医疗专家团队，针对高血压、心脑血管、肿瘤等领域精准研究，构建医生集团和精准分病诊疗体系及临床基地，对所投医疗项目给予优质医疗资源整合与提升。<strong>拥有丰富的医院项目管理经验 </strong>其中团队成员参与的项目包括北京友谊医院顺义院区PPP项目、北京天坛医院新院项目、北京中医院顺义院区、河北省人民医院建设项目、河北医科大学第四附属医院建设项目、廊坊四院PPP建设项目、河北容城县中医院PPP托管项目、湖北宜昌妇儿医院PPP项目、中国医科大学附属第一医院鞍山医院、云南医科大学附属医院项目、巴州蒙医院项目、和静医院项目等。源和医管助力中国医疗行业发展，针对医院价值提升进行全产业链服务，包括投资融资、项目集成管理、医院运营管理、辅医及后勤物业管理、医院供应链管理、医疗产业链构建、医疗资源整合等投资、运营系统服务，构筑国内领先的基于价值的医疗投资与管理生态系统。源和医管在医疗产业投资与管理、医院管理及运营维护、医养结合服务等方面具有专业团队和能力，积累了丰富的经验，医疗PPP理论研究及实践处于国内领先水平，助力中国医疗卫生事业发展。战略合作伙伴：北京航天航空大学北京价值工程学会、中国医疗建筑与装备协会、中关村熙睿心脑肿瘤精准医疗研究院、北京建筑大学医疗建筑研究中心、北京市工程咨询公司PPP研究院、北京城建集团、中建一局、中国中元国际工程有限公司，联系电话：010-82292756肖女士：15010379581  孙先生：1860101170邮箱：<a href="mailto:sunyuan@yhoocapital.com"><u>sunyuan@yhoocapital.com</u></a></p>
-          </dd>
-            
-            <dd class="clear"></dd>
-            
-            <dt>政府工作经历：<img src="images/4.jpg" alt="OK" width="135" height="164" /><a href="images/4.jpg">bigimages</a></dt>
-            <dd>
-                <h2>3）河北邯郸市临漳县副县长</h2>
-                <ul>                  邯郸市政府关于梁趁军等同志职务任免的决定<br />
-                  2011-11-01 16:30:48 燕赵都市网 www.yzdsb.com.cn<br />
-                  张婷婷、<span class="STYLE1">张国宗、</span>韩恺同志的市政府办公厅副主任(挂职)职务；
-                </ul>
-            </dd>
-            
-            <dd>
-              <h2>临漳县政府副县长：张国宗</h2>
-              <ul>
-                负责与团县委、县广播电视台、县科协、县红十字会的工作联系。负责教育体育、科技、文化广播电视、卫生、旅游等方面工作。<br />
-分管县教育体育局、县科学技术局（县地震局）、县文化广电新闻出版局、县卫生局、县医院、县中医院、县爱卫办、县残联、县文物旅游局、县第一中学、职教中心。
-              </ul>
-            </dd>
-          <dd>&nbsp;</dd>
-            <dd class="clear"></dd>
-            
-            <dt>&nbsp;</dt>
-            <dd>
-              <h2>副县长张国宗到我校亲切看望和慰问高三教师</h2>
-              <p>五月的校园，百花争艳，春意浓浓。5月30日下午，副县长张国宗在县政府办、县教育局等部门负责人的陪同下，到临漳县职教中心亲切看望和慰问高三教师。<br />
-座谈会上，张县长首先听取了职教中心校长孔繁杰的对口高考备考迎考工作汇报。对我校一年以来取得的工作成绩给与了充分地肯定，对学校存在的困难和问题提出了具体的意见和解决办法。<br />
-随后张县长向战斗在一线的全体高三教师表示亲切地慰问和衷心地感谢。他指出，这几年，通过不断的努力，全县教育事业取得了可喜的成绩，教育教学质量逐年提高。现在距离高考已不到10天时间，这是最为关键的时候，希望教师们再接再厉，对学生进行科学引导。一方面要引导学生的学习，重视学生基础，培养学生思考问题分析问题的能力；另一方面要积极引导学生心理，增强学生信心，让他们以放松心态迎接人生的挑战，发挥出最佳水平。他要求，学校要积极配合，为广大考生营造一个良好的高考氛围。他希望，教师们继续发扬奉献精神，以更饱满的热情投入到教学工作中，让今年的对口高考能取得突破性的进展。<br />
-张县长的谆谆教诲和殷切希望，深深地感染和鼓舞着在场的每一位老师。大家表示，决不辜负领导们的期望和全县人民的重托，全身心投入对口高考备考迎考工作，力争今年对口高考再上新台阶。<br />
-张县长一行人还带来了油和大米等慰问品.</p>
-            </dd>
-            
-            <dd class="clear"></dd>
-            
-            <dt>控诉：</dt>
-            <dd class="STYLE1">河北建筑工程学院建筑工程专业，曾在河北省人民医院工作，高级工程师. 临漳县政府副县长张国宗 ，分管人民医院，曾在河北省人民医院工作，高级工程师，北 京源和医院管理服务有限公司法人代表 张国宗 ，其业务范围只有河北 临漳县, 勾引人家老婆 肖女士</dd>
-            <dd class="clear"></dd>
-        </dl>
-        
-        <div class="clear"></div>
-    
+    </div>
+    <br />
+    {% endfor %}
+
+    <div style="text-align:center">
+    {% if paginator.total_pages > 1 %}
+    <div class="pagination">
+      {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="button page-button">&laquo;</a>
+      {% endif %}
+
+      {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="button current-page-button">{{ page }}</a>
+      {% elsif page == 1 %}
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="button page-button">{{ page }}</a>
+      {% else %}
+      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}" class="button page-button">{{ page }}</a>
+      {% endif %}
+      {% endfor %}
+
+      {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="button page-button">&raquo;</a>
+      {% endif %}
+    </div>
+    {% endif %}
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="post-contents">
+      <i class="fa fa-tags">&nbsp;&nbsp; Tags</i><br />
+      {% for tag in site.tags %}
+      {% assign t = tag | first %}
+      {% assign posts = tag | last %}
+      <span class="label label-default">{{t | downcase | replace:" ","-" }} ( {{ posts | size }} )</span><br />
+      {% endfor %}
+    </div>
+    <br />
+    <div class="post-contents">
+      <h3>About Me</h3>
+      <img src="{{ site.baseurl }}/img/me.jpg" style="margin:20px auto 0 auto;">
+      <p style="font-size:18px;">I'm a university student in the last year, also a web developer. I love exporing cultures, learning languages and making BGM music!</p>
+      <br />
+      <div class="btn-group" role="group">
+	<button type="button" class="btn btn-default social-network" style="background-color:#3b5998" target="_blank" onclick='window.open("https://www.facebook.com/profile.php?id=100008885831343");'><i class="fa fa-facebook" style="font-size:20px;color:white;"></i></button>
+	<button type="button" class="btn btn-default social-network" style="background-color:#DD4B38" target="_blank" onclick='window.open("https://plus.google.com/117597970673154060800");'><i class="fa fa-google-plus" style="font-size:20px;color:white;"></i></button>
+	<button type="button" class="btn btn-default social-network" style="background-color:#F60" target="_blank" onclick='window.open("https://soundcloud.com/yiwen-gong");'><i class="fa fa-soundcloud" style="font-size:20px;color:white;"></i></button>
+      </div>
+    </div>
+    </div>
 </div>
 
-</body>
-
-</html>
+<script>
+  var disqus_shortname = 'adagio-cantabile';
+  (function () {
+  var s = document.createElement('script'); s.async = true;
+  s.type = 'text/javascript';
+  s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
+</script>
